@@ -51,5 +51,6 @@ To see the status of the (locked) PHP-FPM processes go to: [http://localhost:809
 
 ## Resources
 
-* Cloudflare Argo tunnel documentation: https://developers.cloudflare.com/argo-tunnel/quickstart/
-* Cloudflared repository: https://github.com/cloudflare/cloudflared
+* [Server-Sent Events on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
+* [Cloudflare Argo tunnel documentation](https://developers.cloudflare.com/argo-tunnel/quickstart/)
+* [Cloudflared repository on GitHub](https://github.com/cloudflare/cloudflared)
