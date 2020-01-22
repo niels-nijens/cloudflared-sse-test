@@ -14,3 +14,14 @@ services:
             - 'php-fpm'
         ports:
             - '8090:80'
+
+    cloudflared:
+        build:
+            context: './.docker/cloudflared'
+        depends_on:
+            - 'nginx'
+        command:
+            - 'tunnel'
+            - '--url=http://nginx:80'
+            - '--loglevel=debug'
+            - '--no-autoupdate'
