@@ -1,15 +1,18 @@
-# cloudflared-sse-test
+# Cloudflared SSE test
 This repository is created to test the behavior of a PHP-based Server-Sent Events stream
 with the [Cloudflare Argo tunnel](https://developers.cloudflare.com/argo-tunnel/quickstart/).
 
 ## The problem
-At the time of writing the cloudflared tunnel command does not seem to disconnect a SSE stream connection when the
+At the time of writing the cloudflared Argo tunnel does not seem to disconnect a SSE stream connection when the
 browser disconnects and the proxy keeps the connection alive. This causes a PHP-FPM child process to be locked to a
 disconnected stream as the PHP script never receives a disconnection through
 [`connection_aborted()`](https://www.php.net/manual/en/function.connection-aborted).
 
-When enough Server-Sent event stream requests are made the PHP-FPM container will eventually only be processing
+When enough Server-Sent event stream requests are made to the PHP-FPM container, it will eventually only be processing
 (disconnected) streams, causing a denial of service.
+
+Server-Sent event stream requests sent directly to the Nginx container will stop processing properly when they are
+disconnected. Freeing up the PHP-FPM process.
 
 ## Installation
 
