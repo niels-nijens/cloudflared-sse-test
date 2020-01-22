@@ -32,5 +32,5 @@ while (true) {
     ob_flush();
     flush();
 
-    sleep(10);
+    sleep(2);
 }
