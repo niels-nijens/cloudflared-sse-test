@@ -1,0 +1,5 @@
+# General ignore rules to improve build performance (IDE, etc.)
+/.DS_Store/
+/.git/
+/.idea/
+*.bak
