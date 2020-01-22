@@ -4,6 +4,21 @@
         <meta charset="UTF-8">
         <title>Server-Sent Events test with Cloudflared tunnel</title>
     </head>
-    <body>
+    <body style="font-family: sans-serif;">
+        <p>Received Server-Sent Events are shown below:</p>
+        <section id="events"></section>
+        <script type="application/javascript">
+            var eventSectionElement = document.getElementById('events');
+            var eventStream = new EventSource('/server-sent-event-stream.php');
+            eventStream.addEventListener(
+                'event-name',
+                function (event) {
+                    var eventParagraphElement = document.createElement('p');
+                    eventParagraphElement.innerHTML = event.data;
+
+                    eventSectionElement.prepend(eventParagraphElement);
+                }
+            );
+        </script>
     </body>
 </html>
